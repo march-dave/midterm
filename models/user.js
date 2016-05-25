@@ -78,49 +78,48 @@ userSchema.statics.authenticate = function(userObj, cb) {
   });
 };
 
-
-userSchema.statics.github = function(userObj, cb) {
-  var accessTokenUrl = 'https://github.com/login/oauth/access_token';
-  var userApiUrl = 'https://api.github.com/user';
-
-  var params = {
-    code: userObj.code,
-    client_id: userObj.clientId,
-    redirect_uri: userObj.redirectUri,
-    client_secret: process.env.GITHUB_SECRET
-  };
-
-  // use code to request access token
-  request.get({ url: accessTokenUrl, qs: params }, (err, response, body) => {
-    if(err) return cb(err);
-
-    var accessToken = qs.parse(body);
-    var headers = { 'User-Agent': 'satellizer' };
-
-    //  use access token to request user profile
-    request.get({ url: userApiUrl, qs: accessToken, headers: headers, json: true }, (err, response, profile) => {
-      if(err) return cb(err);
-
-      User.findOne({ github: profile.id }, (err, existingUser) => {
-        if(err) return cb(err);
-
-        if(existingUser) {
-          var token = existingUser.makeToken();
-          cb(null, token);
-
-        } else {
-          var user = new User();
-          user.github = profile.id;
-          user.save((err, savedUser) => {
-            if(err) return cb(err);
-            var token = savedUser.makeToken();
-            cb(null, token);
-          });
-        }
-      });
-    });
-  });
-}
+// userSchema.statics.github = function(userObj, cb) {
+//   var accessTokenUrl = 'https://github.com/login/oauth/access_token';
+//   var userApiUrl = 'https://api.github.com/user';
+//
+//   var params = {
+//     code: userObj.code,
+//     client_id: userObj.clientId,
+//     redirect_uri: userObj.redirectUri,
+//     client_secret: process.env.GITHUB_SECRET
+//   };
+//
+//   // use code to request access token
+//   request.get({ url: accessTokenUrl, qs: params }, (err, response, body) => {
+//     if(err) return cb(err);
+//
+//     var accessToken = qs.parse(body);
+//     var headers = { 'User-Agent': 'satellizer' };
+//
+//     //  use access token to request user profile
+//     request.get({ url: userApiUrl, qs: accessToken, headers: headers, json: true }, (err, response, profile) => {
+//       if(err) return cb(err);
+//
+//       User.findOne({ github: profile.id }, (err, existingUser) => {
+//         if(err) return cb(err);
+//
+//         if(existingUser) {
+//           var token = existingUser.makeToken();
+//           cb(null, token);
+//
+//         } else {
+//           var user = new User();
+//           user.github = profile.id;
+//           user.save((err, savedUser) => {
+//             if(err) return cb(err);
+//             var token = savedUser.makeToken();
+//             cb(null, token);
+//           });
+//         }
+//       });
+//     });
+//   });
+// }
 
 userSchema.methods.makeToken = function() {
   var token = jwt.sign({
