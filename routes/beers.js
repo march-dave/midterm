@@ -21,13 +21,32 @@ router.route('/')
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
 
-    // var beer = new Beer(JSON.parse(body).data);
-    //  Beer.save( (err, beer) => {
-    //    console.log('beer:', beer);
-    //    res.send(beer);
-    //  });
+    var obj = JSON.parse(body).data;
 
-    res.send(JSON.parse(body).data);
+    obj.id = obj.id;
+    obj.name = obj.name;
+    obj.nameDisplay = obj.nameDisplay;
+
+    // console.log('obj', obj);
+    // console.log('obj.id', obj.id);
+    // console.log('obj.name', obj.name);
+    // console.log('obj.nameDisplay', obj.nameDisplay);
+
+    var beerObj = {
+      id: obj.id,
+      name:  obj.name,
+      nameDisplay: obj.nameDisplay
+    };
+
+    console.log('beerObj', beerObj);
+
+    var beer = new Beer(beerObj);
+     beer.save( (err, beer) => {
+       console.log('beer:', beer);
+       res.send(beer);
+     });
+
+    // res.send(JSON.parse(body).data);
 
   });
 

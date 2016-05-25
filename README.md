@@ -21,10 +21,9 @@ Also included is a User model, which has built in methods and some middleware.  
 3. Run `gulp` to start the server.
 
 
-https://safe-eyrie-46409.herokuapp.com/
 
 
 
 
-
+https://lit-bastion-29895.herokuapp.com/
 heroku addons:create mongolab
