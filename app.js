@@ -18,29 +18,6 @@ mongoose.connect(MONGOURL, err => {
     console.log(err || `Connected to MongoDB at ${MONGOURL}`);
 });
 
-// app.use(stormpath.init(app, {
-//   web: {
-//     me: {
-//       expand: {
-//         customData: true
-//       }
-//     }
-//   },
-//     register: {
-//       form: {
-//         fields: {
-//           favoriteColor: {
-//             enabled: true,
-//             label: 'Favorite Color',
-//             name: 'favoriteColor',
-//             placeholder: 'E.g. Red, Blue',
-//             required: true,
-//             type: 'text'
-//           }
-//         }
-//       }
-//     }
-// }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -58,7 +35,7 @@ app.use('/api', require('./routes/api'));
 // app.use('/users', require('./routes/users'));
 // app.use('/items', require('./routes/items'));
 // app.use('/bids', require('./routes/bids'));
-app.use('/auth', require('./routes/auth'));
+// app.use('/auth', require('./routes/auth'));
 app.use('/', require('./routes/index'));
 
 
