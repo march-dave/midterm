@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-router.use('/items', require('./items'));
+// router.use('/items', require('./items'));
+router.use('/beers', require('./beers'));
 router.use('/users', require('./users'));
 // router.use('/payment', require('./payment'));
 router.use('/bids', require('./bids'));
