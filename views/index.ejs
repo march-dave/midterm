@@ -10,7 +10,7 @@
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="/bower_components/satellizer/satellizer.min.js"></script>
 
-  <script src="https://js.stripe.com/v2/"></script>
+  <!-- <script src="https://js.stripe.com/v2/"></script> -->
   <script src="/bower_components/angular-stripe-checkout/angular-stripe-checkout.js"></script>
 
   <script src="/js/module.js"></script>
@@ -33,7 +33,7 @@
       <span ng-show='isAuthenticated()'>
         <button class="btn btn-sm btn-default" ui-sref='profile'>Profile</button>
         <button class="btn btn-sm btn-default" ng-click='logout()'>Logout</button>
-          <a if-user ui-sref='quotes' sp-logout>My Quotes</a>
+          <a if-user ui-sref='beers' sp-logout>Beers</a>
         <span>Hello {{currentUser.username}}!</span>
       </span>
     </div>

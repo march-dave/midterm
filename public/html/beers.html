@@ -1,0 +1,88 @@
+<!-- <h1>Auction</h1> -->
+
+<div class='container'>
+
+  <div ng-repeat='item in items'>
+    <div class="ui link cards" >
+          <div class="card">
+
+            <div class="image">
+              <div class="header" ng-model='newBid._id' ng-bind='item._id'></div>
+              <img ng-src='{{ item.image }}'>
+            </div>
+
+            <div class="content">
+              <div class="header">{{ item.title }}</div>
+              <div class="description">
+                {{ item.detail }}
+              </div>
+            </div>
+
+            <div class="extra content">
+              <span class="right floated">
+                {{ item.bidtime }}
+              </span>
+            </div>
+          </div>
+    </div>
+
+  <br />
+  <br />
+  <br />
+
+    <div class="ui left action input">
+      <button class="ui gray labeled icon button">
+        <i class="dollar icon"></i>
+        Starting bid
+      </button>
+      <input type="text" value="$75.00">
+    </div>
+
+    <br />
+    <br />
+
+    <div class="ui left action input">
+      <button class="ui green labeled icon button">
+        <i class="dollar icon"></i>
+        Bidding
+      </button>
+      <input type="text" value="150.47" ng-model='newBid.bidding'>&nbsp;<button class="ui green button" ng-click='addBidding(newBid, item._id)'>bid</button>
+    </<div></div>
+  </div>
+
+</div>
+
+<table class="ui very basic collapsing celled table">
+  <thead>
+    <tr>
+      <th>Bidder</th>
+      <th>Bid Amount</th>
+      <th>Bid Time</th>
+      <th>Buy Now!</th>
+  </tr></thead>
+  <tbody>
+    <tr ng-repeat='bid in bids'>
+      <td>
+        <h4 class="ui image header">
+          <i class="user icon"></i>
+          <div class="content">
+            <!-- {{ bid.name }} -->
+            {{ bid.image }}
+            <div class="sub header">
+          </div>
+        </div>
+      </h4></td>
+      <td>
+        <!-- {{ bid.bidding }} -->
+        {{ bid.title }}
+      </td>
+      <td>
+        <!-- {{ bid.biddingTime }} -->
+        {{ bid.biddingTime }}
+      </td>
+      <td>
+
+          </td>
+    </tr>
+  </tbody>
+</table>

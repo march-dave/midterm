@@ -28,9 +28,19 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
       templateUrl: '/html/quotes.html',
       controller: 'quotesCtrl'
       ,resolve: {
-        SimpleEBayResolve: function(SimpleEBayService) {
-          return SimpleEBayService.getItemAll();
-        }
+        // SimpleEBayResolve: function(SimpleEBayService) {
+        //   return SimpleEBayService.getItemAll();
+        // }
+      }
+    })
+    .state('beers', {
+      url:'/beers',
+      templateUrl: '/html/beers.html',
+      controller: 'beersCtrl'
+      ,resolve: {
+        // BeerService: function(BeerService) {
+        //   return BeerService.getAll();
+        // }
       }
     })
     .state('profile', {
@@ -47,8 +57,6 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
       //   }
       // }
     })
-
-
 
   $urlRouterProvider.otherwise('/');
 });
