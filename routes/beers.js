@@ -30,14 +30,23 @@ router.route('/')
      });
   });
 
-  // Facedetect.find({}, (err, faces) => {
-  //   if(err) {
-  //     res.status(400).send(err);
-  //   } else {
-  //     res.send(faces);
-  //   }
-  //   console.log('faces: ', faces);
-  // })
+
+
+
+  // var request = require("request");
+  //
+  // var options = { method: 'GET',
+  //   url: 'https://api.brewerydb.com/v2/beer/x7ICZ5',
+  //   qs: { key: '223748ee6145b2143642c33f2ed2b503', format: 'json' },
+  //   headers:
+  //    { 'postman-token': '360b6fc6-39f2-30bc-68b9-a2e6ffa396da',
+  //      'cache-control': 'no-cache' } };
+  //
+  // request(options, function (error, response, body) {
+  //   if (error) throw new Error(error);
+  //
+  //   console.log(body);
+  // });
 
 
 })

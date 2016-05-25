@@ -13,9 +13,8 @@ var beerSchema = new mongoose.Schema({
   availableId:{type: String},
   styleId:{type: String},
   isOrganic:{type: String},
-  statusDisplay:{type: String}
-
-  ,marked: {type: String}
+  statusDisplay:{type: String},
+  marked: {type: Boolean, default: false}
 });
 
 var Beer = mongoose.model('Beer', beerSchema);

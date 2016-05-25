@@ -7,6 +7,10 @@
           <div class="card">
 
             <div class="content">
+              <div class="header">id: {{ beers.id }}</div>
+            </div>
+
+            <div class="content">
               <div class="header">name: {{ beers.name }}</div>
               <div class="description">
                 nameDisplay: {{ beers.nameDisplay }}
@@ -26,40 +30,13 @@
             </div>
           </div>
 
+          <div class="extra content">
+            <span class="right floated">
+              <input type='checkbox'> sampled
+            </span>
+          </div>
+        </div>
+
     </div>
   </div>
 </div>
-
-
-<!-- <table class="ui very basic collapsing celled table">
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>nameDisplay</th>
-      <th>createDate</th>
-      <th>description</th>
-      <th>status</th>
-      <th>statusDisplay</th>
-  </tr></thead>
-  <tbody>
-    <tr ng-repeat='beer in beers'>
-      <td>
-        {{ beer.name }}
-      <td>
-        {{ beer.nameDisplay }}
-      </td>
-      <td>
-        {{ beer.createDate }}
-      </td>
-      <td>
-        {{ beer.description }}
-      </td>
-      <td>
-        {{ beer.status }}
-      </td>
-      <td>
-      <beer class="statusDisplay">{{beer.statusDisplay}}</beer>
-      </td>
-    </tr>
-  </tbody>
-</table> -->

@@ -27,3 +27,4 @@ Also included is a User model, which has built in methods and some middleware.  
 
 https://lit-bastion-29895.herokuapp.com/
 heroku addons:create mongolab
+heroku config:add JWT_SECRET="?????????"
