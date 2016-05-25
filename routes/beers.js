@@ -30,9 +30,6 @@ router.route('/')
      });
   });
 
-
-
-
   // var request = require("request");
   //
   // var options = { method: 'GET',
@@ -48,7 +45,12 @@ router.route('/')
   //   console.log(body);
   // });
 
-
 })
+
+router.put('/:id', (req, res) => {
+  Beer.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}, (err, beer) => {
+    res.status(err ? 400 : 200).send(err || beer);
+  });
+});
 
 module.exports = router;
