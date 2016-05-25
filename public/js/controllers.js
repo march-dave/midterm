@@ -2,8 +2,11 @@
 
 var app = angular.module('authApp');
 
-app.controller('profileCtrl', function() {
-  console.log('profileCtrl!');
+app.controller('profileCtrl', function($scope) {
+  // console.log('profileCtrl!');
+  // $scope.editUser();
+
+  //  console.log($scope.editUser());
 });
 
 app.controller('mainCtrl', function($scope, $state, $auth) {

@@ -3,9 +3,6 @@
 var app = angular.module('authApp', ['ui.router', 'satellizer']);
 
 app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
-  $authProvider.github({
-    clientId: '20dde4e1b29be8b7a4ce'
-  });
 
   $stateProvider
     .state('home', { url: '/', templateUrl: '/html/home.html', controller: 'homeCtrl' })
