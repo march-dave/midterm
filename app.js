@@ -35,7 +35,7 @@ app.use('/api', require('./routes/api'));
 // app.use('/users', require('./routes/users'));
 // app.use('/items', require('./routes/items'));
 // app.use('/bids', require('./routes/bids'));
-// app.use('/auth', require('./routes/auth'));
+app.use('/auth', require('./routes/auth'));
 app.use('/', require('./routes/index'));
 
 
