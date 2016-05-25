@@ -25,7 +25,6 @@ router.route('/')
 
     var beer = new Beer(obj);
      beer.save( (err, beer) => {
-
        res.send(beer);
      });
   });
@@ -48,7 +47,7 @@ router.route('/')
 })
 
 router.put('/:id', (req, res) => {
-  Beer.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}, (err, beer) => {
+  Beer.findByIdAndUpdate( { id: req.params.id }, {$set: req.body}, {new: true}, (err, beer) => {
     res.status(err ? 400 : 200).send(err || beer);
   });
 });
