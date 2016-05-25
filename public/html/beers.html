@@ -55,34 +55,33 @@
 <table class="ui very basic collapsing celled table">
   <thead>
     <tr>
-      <th>Bidder</th>
-      <th>Bid Amount</th>
-      <th>Bid Time</th>
-      <th>Buy Now!</th>
+      <!-- <th>id</th> -->
+      <th>name</th>
+      <th>nameDisplay</th>
+      <th>createDate</th>
+      <th>description</th>
+      <th>status</th>
+      <th>statusDisplay</th>
   </tr></thead>
   <tbody>
-    <tr ng-repeat='bid in bids'>
+    <tr ng-repeat='beer in beers'>
       <td>
-        <h4 class="ui image header">
-          <i class="user icon"></i>
-          <div class="content">
-            <!-- {{ bid.name }} -->
-            {{ bid.image }}
-            <div class="sub header">
-          </div>
-        </div>
-      </h4></td>
+        {{ beer.name }}
       <td>
-        <!-- {{ bid.bidding }} -->
-        {{ bid.title }}
+        {{ beer.nameDisplay }}
       </td>
       <td>
-        <!-- {{ bid.biddingTime }} -->
-        {{ bid.biddingTime }}
+        {{ beer.createDate }}
       </td>
       <td>
-
-          </td>
+        {{ beer.description }}
+      </td>
+      <td>
+        {{ beer.status }}
+      </td>
+      <td>
+        {{ <beer class="statusDisplay"></beer> }}
+      </td>
     </tr>
   </tbody>
 </table>
