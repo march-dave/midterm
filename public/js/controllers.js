@@ -67,25 +67,6 @@ app.controller('authFormCtrl', function($scope, $state, $auth) {
 
 });
 
-app.controller('quotesCtrl', function($scope, $state, Payment, SimpleEBayResolve, SimpleEBayService, $rootScope) {
-
-  SimpleEBayService.getItemAll().then(function (result) {
-      $scope.bids = result.data;
-  });
-
-  $scope.doCheckout = function(token) {
-
-     Payment.completeCheckout(token, $scope.selectedBidId)
-       .then(res => {
-         console.log('res:', res);
-       });
-   }
-
-  $scope.selectBid = function(id) {
-   $scope.selectedBidId = id;
- };
-});
-
 app.controller('beersCtrl', function($scope, $state, BeerService, $rootScope) {
   BeerService.getAll().then(function (result) {
       $scope.beers = result.data;
@@ -96,28 +77,4 @@ app.controller('beersCtrl', function($scope, $state, BeerService, $rootScope) {
       console.log('status', result.data.status);
       console.log('statusDisplay', result.data.statusDisplay);
   });
-});
-
-app.service('BeerService', function($http) {
-  this.getAll = () => {
-    return $http.get('/api/beers');
-  };
-});
-
-// app.service('Payment', function($http) {
-//   this.completeCheckout = function(token, itemId) {
-//     return $http.post('/api/payment', { token: token, itemId: itemId });
-//   };
-// });
-
-app.service('Item', function($http) {
-  this.getAll = () => {
-    return $http.get('/api/items');
-  };
-});
-
-app.service('Bid', function($http) {
-  this.getAll = () => {
-    return $http.get('/api/bids');
-  };
 });

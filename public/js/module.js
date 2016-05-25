@@ -2,10 +2,6 @@
 
 var app = angular.module('authApp', ['ui.router', 'satellizer']);
 
-// app.run(function(Auth) {
-//   Auth.getProfile();
-// });
-
 app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   $authProvider.github({
     clientId: '20dde4e1b29be8b7a4ce'
@@ -22,16 +18,6 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
       url: '/login',
       templateUrl: '/html/authForm.html',
       controller: 'authFormCtrl'
-    })
-    .state('quotes', {
-      url:'/quotes',
-      templateUrl: '/html/quotes.html',
-      controller: 'quotesCtrl'
-      ,resolve: {
-        // SimpleEBayResolve: function(SimpleEBayService) {
-        //   return SimpleEBayService.getItemAll();
-        // }
-      }
     })
     .state('beers', {
       url:'/beers',
