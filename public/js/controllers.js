@@ -73,11 +73,11 @@ app.controller('authFormCtrl', function($scope, $state, $auth) {
 app.controller('beersCtrl', function($scope, $state, BeerService, $rootScope) {
   BeerService.getAll().then(function (result) {
       $scope.beers = result.data;
-      console.log('data', result.data);
-      console.log('name', result.data.name);
-      console.log('nameDisplay', result.data.nameDisplay);
-      console.log('description', result.data.description);
-      console.log('status', result.data.status);
-      console.log('statusDisplay', result.data.statusDisplay);
+      // console.log('data', result.data);
+      // console.log('name', result.data.name);
+      // console.log('nameDisplay', result.data.nameDisplay);
+      // console.log('description', result.data.description);
+      // console.log('status', result.data.status);
+      // console.log('statusDisplay', result.data.statusDisplay);
   });
 });
